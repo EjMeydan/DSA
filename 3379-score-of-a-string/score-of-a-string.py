@@ -1,7 +1,12 @@
 class Solution:
     def scoreOfString(self, s: str) -> int:
 
-        return sum(abs(ord(a) - ord(b)) for a, b in zip(s, s[1:]))
+        score = 0 
+        prev = ord(s[0])
 
+        for ch in s[1:]:
+            score += abs(prev - ord(ch))
+            prev = ord(ch)
 
+        return score
         
